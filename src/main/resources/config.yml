@@ -1,0 +1,9 @@
+version: 1
+world: "world"
+center-x: 0
+center-y: 0
+base-range: 20.0
+max-range: 50.0
+expand-period-tick: 1
+expand-per-attempt: 0.1
+delay-per-task: 2000

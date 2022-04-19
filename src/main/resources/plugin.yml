@@ -1,0 +1,7 @@
+name: MinuteRush
+version: 0.0.1
+main: cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
+commands:
+  minuterush:
+    description: Minute Rush
+    usage: /minuterush help

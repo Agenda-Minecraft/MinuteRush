@@ -4,7 +4,7 @@ import cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
 import cat.kiwi.minecraft.minuteRush.rush.RushManager
 import cat.kiwi.minecraft.minuteRush.rush.RushTimerTask
 import cat.kiwi.minecraft.minuteRush.rush.rushEvents.SendMessageRushEvent
-import cat.kiwi.minecraft.minuteRush.title.SendTitle
+import cat.kiwi.minecraft.minuteRush.dispaly.SendTitle
 import org.bukkit.event.player.AsyncPlayerChatEvent
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask

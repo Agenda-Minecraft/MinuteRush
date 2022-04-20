@@ -2,6 +2,7 @@ package cat.kiwi.minecraft.minuteRush
 import cat.kiwi.minecraft.minuteRush.border.WorldExpandTask
 import cat.kiwi.minecraft.minuteRush.cmd.MinuteRushCmd
 import cat.kiwi.minecraft.minuteRush.globalEvent.GlobalListener
+import cat.kiwi.minecraft.minuteRush.rush.RushLoader
 import org.bukkit.Bukkit
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
@@ -24,7 +25,6 @@ class MinuteRushPlugin:JavaPlugin() {
         }
         saveConfig()
         Lang.load()
-
 
         server.pluginManager.registerEvents(GlobalListener(),this)
         getCommand("minuterush")!!.setExecutor(MinuteRushCmd())

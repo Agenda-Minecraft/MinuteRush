@@ -1,6 +1,9 @@
 {
-  "load-complete": "语言文件读取成功",
-  "player-complete-rush": "&6%player% 完成了任务",
-  "scoreboard-title": "&a排行榜",
-  "bossBar-title": "&6&l倒计时"
+  "load.complete": "&a语言文件读取成功",
+  "player.complete-rush": "&6%player% 完成了任务",
+  "scoreboard.title": "&a排行榜",
+  "bossBar.title": "&6&l倒计时",
+  "rush.loaded": "&aRush 加载完成",
+  "rush.start": "&aRush 游戏开始",
+  "rush.end": "&6游戏结束"
 }

@@ -2,7 +2,6 @@ package cat.kiwi.minecraft.minuteRush.border
 
 import cat.kiwi.minecraft.minuteRush.Config
 import cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
-import cat.kiwi.minecraft.minuteRush.exception.WorldInvalidException
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
@@ -14,7 +13,8 @@ object WorldExpandTask {
             val taskID = ExpandTask().runTaskTimer(MinuteRushPlugin.instance, 10, 1)
             expandTaskID = taskID
         } else {
-            throw  WorldInvalidException()
+            MinuteRushPlugin.instance.logger.info("Cannot expand world, world does not exist")
+            MinuteRushPlugin.instance.onDisable()
         }
     }
 

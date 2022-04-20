@@ -2,12 +2,12 @@
   "rush": [
     {
       "type": "SendMessageRush",
-      "title": "发送任意消息",
+      "title": "&6发送任意消息",
       "duration": 300
     },
     {
       "type": "StandOnBlockRush",
-      "title": "站在工作台上",
+      "title": "&6站在工作台上",
       "duration": 1000,
       "material": "WORKBENCH"
     }

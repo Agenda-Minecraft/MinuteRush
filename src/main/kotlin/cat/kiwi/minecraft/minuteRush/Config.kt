@@ -10,6 +10,7 @@ object Config {
     var expand_period_tick = 1
     var expand_per_attempt = 0.1
     var delay_per_task = 2000L
+    var game_start_delay = 2000L
     fun readConfig() = with(MinuteRushPlugin.instance.config) {
         options().copyDefaults(true)
         version = getInt("1")
@@ -21,5 +22,6 @@ object Config {
         expand_period_tick = getInt("expand-period-tick")
         expand_per_attempt = getDouble("expand-per-attempt")
         delay_per_task = getLong("delay-per-task")
+        game_start_delay = getLong("game-start-delay")
     }
 }

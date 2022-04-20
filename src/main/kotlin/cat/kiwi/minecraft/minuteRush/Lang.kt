@@ -10,25 +10,33 @@ import java.nio.file.Paths
 import java.nio.file.StandardCopyOption
 
 
-
-
 object Lang {
     private lateinit var lang: JsonObject
 
     // Just get String
-    fun get(key:String) = lang.get(key).asString.replace("&", "§")
+    fun get(key: String): String =
+        try {
+            lang.get(key).asString.replace("&", "§")
+        } catch (e: Exception) {
+            "§c[MinuteRush] §fError: §c$key §fnot found"
+        }
 
     // Get String with player object's name String replace
-    fun get(key:String, player: Player) = lang.get(key).asString.replace("&", "§").replace("%player%", player.name)
+    fun get(key: String, player: Player): String =
+        try {
+            lang.get(key).asString.replace("&", "§").replace("%player%", player.name)
+        } catch (e: Exception) {
+            "§c[MinuteRush] §fError: §c$key §fnot found"
+        }
 
 
     fun load() {
         try {
             // load lang file
             val langFile = File("./plugins/MinuteRush/lang.json")
-            val jsonString  = langFile.readText(Charsets.UTF_8)
+            val jsonString = langFile.readText(Charsets.UTF_8)
             lang = JsonParser.parseString(jsonString).asJsonObject
-            MinuteRushPlugin.instance.logger.info(lang.get("load-complete").asString)
+            MinuteRushPlugin.instance.logger.info(lang.get("load.complete").asString)
 
         } catch (e: FileNotFoundException) {
             // copy stream to file

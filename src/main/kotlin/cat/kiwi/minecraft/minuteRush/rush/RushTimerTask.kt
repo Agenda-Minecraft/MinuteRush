@@ -1,8 +1,6 @@
 package cat.kiwi.minecraft.minuteRush.rush
 
-import org.bukkit.Bukkit
-import org.bukkit.boss.BarColor
-import org.bukkit.boss.BarStyle
+import cat.kiwi.minecraft.minuteRush.dispaly.RushTimerBossBar
 import org.bukkit.scheduler.BukkitRunnable
 
 class RushTimerTask(var time: Int) : BukkitRunnable() {

@@ -1,4 +1,4 @@
-package cat.kiwi.minecraft.minuteRush.title
+package cat.kiwi.minecraft.minuteRush.dispaly
 
 import org.bukkit.Bukkit
 

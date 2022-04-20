@@ -1,4 +1,4 @@
-package cat.kiwi.minecraft.minuteRush.rush
+package cat.kiwi.minecraft.minuteRush.dispaly
 
 import cat.kiwi.minecraft.minuteRush.Lang
 import org.bukkit.Bukkit
@@ -6,7 +6,7 @@ import org.bukkit.boss.BarColor
 import org.bukkit.boss.BarStyle
 
 object RushTimerBossBar {
-    private val bossBar = Bukkit.createBossBar(Lang.get("bossBar-title"), BarColor.BLUE, BarStyle.SOLID)
+    private val bossBar = Bukkit.createBossBar(Lang.get("bossBar.title"), BarColor.BLUE, BarStyle.SOLID)
     fun display(time: Int, totalTime: Int) {
         Thread {
             bossBar.removeAll()

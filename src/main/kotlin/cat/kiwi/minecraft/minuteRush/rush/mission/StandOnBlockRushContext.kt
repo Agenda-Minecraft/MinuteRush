@@ -17,10 +17,10 @@ class StandOnBlockRushContext(private val rushTitle: String, private val duratio
         set(value) = run { field = value }
 
     override fun cancel() {
-        RushManager.currentRushTask!!.cancel()
+        timerTaskID?.cancel()
+
         RushManager.currentRushTask = null
         RushManager.currentRush = null
-        timerTaskID!!.cancel()
 
         PlayerMoveEvent.getHandlerList().unregister(RushManager.currentTaskRegisteredListener!!)
     }

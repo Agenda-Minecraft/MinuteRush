@@ -8,7 +8,9 @@ class RushTimerTask(var time: Int) : BukkitRunnable() {
     override fun run() {
         time -= 20
         if (time <= 0) {
-            RushManager.currentRush?.cancel()
+            if (RushManager.currentRush != null) {
+                RushManager.currentRush!!.cancel()
+            }
         }
         RushTimerBossBar.display(time,totalTime)
     }

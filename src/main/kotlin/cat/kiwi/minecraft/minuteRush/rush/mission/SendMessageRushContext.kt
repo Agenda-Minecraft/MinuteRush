@@ -14,9 +14,9 @@ class SendMessageRushContext(private val rushTitle: String, private val Duration
         set(value) = run { field = value }
 
     override fun cancel() {
-        RushManager.currentRushTask!!.cancel()
+        timerTaskID?.cancel()
+
         RushManager.currentRushTask = null
-        timerTaskID!!.cancel()
         RushManager.currentRush = null
 
         AsyncPlayerChatEvent.getHandlerList().unregister(RushManager.currentTaskRegisteredListener!!)

@@ -21,7 +21,9 @@ class StandOnBlockRushEvent : Listener {
                 playerLoc.y = playerLoc.y - 1
                 if (playerLoc.block.type == (RushManager.currentRush as StandOnBlockRushContext).material) {
                     RushManager.taskLock = true
-                    RushManager.currentRush?.cancel()
+                    if (RushManager.currentRush != null) {
+                        RushManager.currentRush!!.cancel()
+                    }
                     SendTitle.sendAll(Lang.get("player.complete-rush", e.player))
                     RushScoreBoard.inc(e.player.displayName)
                     Thread.sleep(2000)

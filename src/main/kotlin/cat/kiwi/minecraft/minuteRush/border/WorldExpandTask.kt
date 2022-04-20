@@ -6,12 +6,12 @@ import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
 object WorldExpandTask {
-    private var expandTaskID: BukkitTask? = null
+    private var expandTask: BukkitTask? = null
 
     fun expand() {
-        if (expandTaskID == null) {
-            val taskID = ExpandTask().runTaskTimer(MinuteRushPlugin.instance, 10, 1)
-            expandTaskID = taskID
+        if (expandTask == null) {
+            val task = ExpandTask().runTaskTimer(MinuteRushPlugin.instance, 10, 1)
+            expandTask = task
         } else {
             MinuteRushPlugin.instance.logger.info("Cannot expand world, world does not exist")
             MinuteRushPlugin.instance.onDisable()
@@ -19,8 +19,8 @@ object WorldExpandTask {
     }
 
     fun stop() {
-        expandTaskID!!.cancel()
-        expandTaskID = null
+        expandTask?.cancel()
+        expandTask = null
     }
 }
 

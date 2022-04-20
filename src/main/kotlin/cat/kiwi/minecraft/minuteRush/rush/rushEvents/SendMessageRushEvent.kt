@@ -15,7 +15,10 @@ class SendMessageRushEvent : Listener {
         if (RushManager.taskLock) return
         Thread {
             RushManager.taskLock = true
-            RushManager.currentRush?.cancel()
+            if (RushManager.currentRush != null) {
+                RushManager.currentRush!!.cancel()
+            }
+
             SendTitle.sendAll(Lang.get("player.complete-rush",e.player))
             RushScoreBoard.inc(e.player.displayName)
 

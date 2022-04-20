@@ -42,8 +42,8 @@ class RushManager {
                         currentRush = rush
                         currentRushTask = rush.runTask(MinuteRushPlugin.instance)
                     }
-                    stopRush()
                 }
+                stopRush()
             }.start()
         }
 

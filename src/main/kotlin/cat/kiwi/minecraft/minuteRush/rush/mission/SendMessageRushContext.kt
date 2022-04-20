@@ -9,7 +9,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
-class SendMessageRush(private val rushTitle: String, private val Duration: Int) : BukkitRunnable() {
+class SendMessageRushContext(private val rushTitle: String, private val Duration: Int) : BukkitRunnable() {
     private var timerTaskID: BukkitTask? = null
         set(value) = run { field = value }
 

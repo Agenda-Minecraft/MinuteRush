@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
-class StandOnBlockRush(private val rushTitle: String, private val duration: Int, private val block: String) :
+class StandOnBlockRushContext(private val rushTitle: String, private val duration: Int, private val block: String) :
     BukkitRunnable() {
     val material get() = Material.getMaterial(block)
     private var timerTaskID: BukkitTask? = null

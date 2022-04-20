@@ -1,5 +1,5 @@
-import cat.kiwi.minecraft.minuteRush.rush.mission.SendMessageRush
-import cat.kiwi.minecraft.minuteRush.rush.mission.StandOnBlockRush
+import cat.kiwi.minecraft.minuteRush.rush.mission.SendMessageRushContext
+import cat.kiwi.minecraft.minuteRush.rush.mission.StandOnBlockRushContext
 import com.google.gson.JsonParser
 
 class Application {
@@ -28,11 +28,11 @@ class Application {
                 val r = i.asJsonObject
                 when (r["type"].asString) {
                     "SendMessageRush" -> {
-                        val rush = SendMessageRush(r["title"].asString, r["duration"].asInt)
+                        val rush = SendMessageRushContext(r["title"].asString, r["duration"].asInt)
                         rush.run()
                     }
                     "StandOnBlockRush" -> {
-                        val rush = StandOnBlockRush(r["title"].asString, r["duration"].asInt, r["material"].asString)
+                        val rush = StandOnBlockRushContext(r["title"].asString, r["duration"].asInt, r["material"].asString)
                         rush.run()
                     }
                 }

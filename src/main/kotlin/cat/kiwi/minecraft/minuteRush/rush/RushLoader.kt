@@ -3,8 +3,8 @@ package cat.kiwi.minecraft.minuteRush.rush
 import cat.kiwi.minecraft.minuteRush.Lang
 import cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
 import cat.kiwi.minecraft.minuteRush.dispaly.SendTitle
-import cat.kiwi.minecraft.minuteRush.rush.mission.SendMessageRush
-import cat.kiwi.minecraft.minuteRush.rush.mission.StandOnBlockRush
+import cat.kiwi.minecraft.minuteRush.rush.mission.SendMessageRushContext
+import cat.kiwi.minecraft.minuteRush.rush.mission.StandOnBlockRushContext
 import com.google.gson.JsonElement
 import com.google.gson.JsonParser
 import java.io.File
@@ -45,13 +45,13 @@ object RushLoader {
             val mission = r.asJsonObject
             when (mission["type"].asString) {
                 "SendMessageRush" -> {
-                    SendMessageRush(
+                    SendMessageRushContext(
                         mission["title"].coloredString(),
                         mission["duration"].asInt
                     ).let { RushManager.rushMissions.add(it) }
                 }
                 "StandOnBlockRush" -> {
-                    StandOnBlockRush(
+                    StandOnBlockRushContext(
                         mission["title"].coloredString(),
                         mission["duration"].asInt,
                         mission["material"].asString

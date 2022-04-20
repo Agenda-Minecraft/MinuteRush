@@ -19,16 +19,16 @@ class SendMessageRushContext(private val rushTitle: String, private val Duration
         timerTaskID!!.cancel()
         RushManager.currentRush = null
 
-        AsyncPlayerChatEvent.getHandlerList().unregister(RushManager.currentTaskRegisteredListener!!);
+        AsyncPlayerChatEvent.getHandlerList().unregister(RushManager.currentTaskRegisteredListener!!)
     }
 
     override fun run() {
         timerTaskID = RushTimerTask(Duration).runTaskTimer(MinuteRushPlugin.instance, 0, 20)
         RushManager.currentTaskRegisteredListener = SendMessageRushEvent()
-        MinuteRushPlugin.instance.server.pluginManager.registerEvents(RushManager.currentTaskRegisteredListener as SendMessageRushEvent,MinuteRushPlugin.instance)
+        MinuteRushPlugin.instance.server.pluginManager.registerEvents(
+            RushManager.currentTaskRegisteredListener as SendMessageRushEvent,
+            MinuteRushPlugin.instance
+        )
         SendTitle.sendAll(rushTitle)
     }
-
-
-    override fun toString(): String = "SendMessageRush"
 }

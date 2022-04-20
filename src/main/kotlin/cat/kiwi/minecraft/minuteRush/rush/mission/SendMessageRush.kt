@@ -7,21 +7,23 @@ import cat.kiwi.minecraft.minuteRush.rush.rushEvents.SendMessageRushEvent
 import cat.kiwi.minecraft.minuteRush.title.SendTitle
 import org.bukkit.event.player.AsyncPlayerChatEvent
 import org.bukkit.scheduler.BukkitRunnable
+import org.bukkit.scheduler.BukkitTask
 
 class SendMessageRush(private val rushTitle: String, private val Duration: Int) : BukkitRunnable() {
+    private var timerTaskID: BukkitTask? = null
+        set(value) = run { field = value }
 
     override fun cancel() {
-        RushManager.currentTask!!.cancel()
-        RushManager.currentTask = null
-        RushManager.timerTaskID!!.cancel()
-        RushManager.timerTaskID = null
+        RushManager.currentRushTask!!.cancel()
+        RushManager.currentRushTask = null
+        timerTaskID!!.cancel()
         RushManager.currentRush = null
 
         AsyncPlayerChatEvent.getHandlerList().unregister(RushManager.currentTaskRegisteredListener!!);
     }
 
     override fun run() {
-        RushManager.timerTaskID = RushTimerTask(Duration).runTaskTimer(MinuteRushPlugin.instance, 0, 20)
+        timerTaskID = RushTimerTask(Duration).runTaskTimer(MinuteRushPlugin.instance, 0, 20)
         RushManager.currentTaskRegisteredListener = SendMessageRushEvent()
         MinuteRushPlugin.instance.server.pluginManager.registerEvents(RushManager.currentTaskRegisteredListener as SendMessageRushEvent,MinuteRushPlugin.instance)
         SendTitle.sendAll(rushTitle)

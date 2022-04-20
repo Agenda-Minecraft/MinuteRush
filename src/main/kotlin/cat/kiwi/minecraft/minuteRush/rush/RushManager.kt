@@ -5,8 +5,6 @@ import cat.kiwi.minecraft.minuteRush.rush.mission.SendMessageRush
 import cat.kiwi.minecraft.minuteRush.rush.mission.StandOnBlockRush
 import cat.kiwi.minecraft.minuteRush.title.SendTitle
 import net.md_5.bungee.api.ChatColor
-import org.bukkit.Bukkit
-import org.bukkit.Material
 import org.bukkit.event.Listener
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
@@ -15,7 +13,7 @@ class RushManager {
     companion object {
         private val rushMissions: ArrayList<BukkitRunnable> = ArrayList()
         init {
-            val material = Material.getMaterial("WORKBENCH")!!
+            val material = "WORKBENCH"
             rushMissions.add(SendMessageRush("发送消息", 1500))
             rushMissions.add(StandOnBlockRush("站在石头上", 1500, material))
             rushMissions.add(SendMessageRush("发送消息", 1500))
@@ -23,12 +21,9 @@ class RushManager {
             rushMissions.add(SendMessageRush("发送消息", 1500))
             rushMissions.add(StandOnBlockRush("站在石头上", 1500, material))
         }
-
-
         var taskLock = false
         var currentRush: BukkitRunnable? = null
-        var currentTask: BukkitTask? = null
-        var timerTaskID: BukkitTask? = null
+        var currentRushTask: BukkitTask? = null
         var currentTaskRegisteredListener: Listener? = null
 
         fun startRandomRush() {
@@ -49,7 +44,7 @@ class RushManager {
 
                         MinuteRushPlugin.instance.logger.info("Task $rush running")
                         currentRush = rush
-                        currentTask = rush.runTask(MinuteRushPlugin.instance)
+                        currentRushTask = rush.runTask(MinuteRushPlugin.instance)
                     }
                 }
             }.start()

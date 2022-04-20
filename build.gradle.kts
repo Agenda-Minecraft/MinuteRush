@@ -19,6 +19,7 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation("org.spigotmc:spigot-api:1.18.2-R0.1-SNAPSHOT")
     implementation("org.json:json:20220320")
+    testImplementation("org.json:json:20220320")
 }
 
 tasks {

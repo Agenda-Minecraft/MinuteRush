@@ -1,17 +1,15 @@
 {
   "rush": [
     {
-      "SendMessageRush": {
-        "title": "发送任意消息",
-        "duration": 300
-      }
+      "type": "SendMessageRush",
+      "title": "发送任意消息",
+      "duration": 300
     },
     {
-      "StandOnBlockRush": {
-        "title": "站在工作台上",
-        "duration": 1000,
-        "material": "WORKBENCH"
-      }
+      "type": "StandOnBlockRush",
+      "title": "站在工作台上",
+      "duration": 1000,
+      "material": "WORKBENCH"
     }
   ]
 }

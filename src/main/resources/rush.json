@@ -9,7 +9,13 @@
       "type": "StandOnBlockRush",
       "title": "&6站在工作台上",
       "duration": 1000,
-      "material": "WORKBENCH"
+      "material": "CRAFTING_TABLE"
+    },
+    {
+      "type": "GoThroughDoorRush",
+      "title": "&6走过一扇橡木门",
+      "duration": 300,
+      "material": "OAK_DOOR"
     }
   ]
 }

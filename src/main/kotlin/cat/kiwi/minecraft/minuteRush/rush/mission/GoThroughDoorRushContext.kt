@@ -10,7 +10,7 @@ import org.bukkit.event.player.PlayerMoveEvent
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
 
-class GoThroughDoorRushContext(private val rushTitle: String, private val Duration: Int, private val block: String) : BukkitRunnable()  {
+class GoThroughDoorRushContext(private val rushTitle: String, private val duration: Int, private val block: String) : BukkitRunnable()  {
     val material get() = Material.getMaterial(block)
     private var timerTaskID: BukkitTask? = null
         set(value) = run { field = value }
@@ -25,7 +25,7 @@ class GoThroughDoorRushContext(private val rushTitle: String, private val Durati
     }
 
     override fun run() {
-        timerTaskID = RushTimerTask(Duration).runTaskTimer(MinuteRushPlugin.instance, 0, 20)
+        timerTaskID = RushTimerTask(duration).runTaskTimer(MinuteRushPlugin.instance, 0, 20)
         RushManager.currentTaskRegisteredListener = GoThroughDoorRushEvent()
         MinuteRushPlugin.instance.server.pluginManager.registerEvents(
             RushManager.currentTaskRegisteredListener as GoThroughDoorRushEvent,

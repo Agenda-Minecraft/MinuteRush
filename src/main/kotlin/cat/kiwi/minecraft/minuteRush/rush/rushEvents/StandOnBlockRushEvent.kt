@@ -5,6 +5,7 @@ import cat.kiwi.minecraft.minuteRush.rush.RushManager
 import cat.kiwi.minecraft.minuteRush.dispaly.RushScoreBoard
 import cat.kiwi.minecraft.minuteRush.rush.mission.StandOnBlockRushContext
 import cat.kiwi.minecraft.minuteRush.dispaly.SendTitle
+import cat.kiwi.minecraft.minuteRush.utils.Logger
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerMoveEvent
@@ -19,6 +20,8 @@ class StandOnBlockRushEvent : Listener {
                 val material = (RushManager.currentRush as StandOnBlockRushContext).material
                 val playerLoc = e.player.location
                 playerLoc.y = playerLoc.y - 1
+                Logger.debug("playerLoc: $playerLoc")
+                Logger.debug("playerLoc.block.type: ${playerLoc.block.type}")
                 if (playerLoc.block.type == material) {
                     RushManager.taskLock = true
                     if (RushManager.currentRush != null) {

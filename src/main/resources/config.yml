@@ -8,3 +8,5 @@ expand-period-tick: 1
 expand-per-attempt: 0.1
 delay-per-task: 2000
 game-start-delay: 2000
+start-player: 10
+debug: false

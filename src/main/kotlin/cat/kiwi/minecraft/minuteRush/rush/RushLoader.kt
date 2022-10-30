@@ -3,6 +3,7 @@ package cat.kiwi.minecraft.minuteRush.rush
 import cat.kiwi.minecraft.minuteRush.Lang
 import cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
 import cat.kiwi.minecraft.minuteRush.dispaly.SendTitle
+import cat.kiwi.minecraft.minuteRush.rush.mission.GoThroughDoorRushContext
 import cat.kiwi.minecraft.minuteRush.rush.mission.SendMessageRushContext
 import cat.kiwi.minecraft.minuteRush.rush.mission.StandOnBlockRushContext
 import com.google.gson.JsonElement
@@ -52,6 +53,12 @@ object RushLoader {
                 }
                 "StandOnBlockRush" -> {
                     StandOnBlockRushContext(
+                        mission["title"].coloredString(),
+                        mission["duration"].asInt,
+                        mission["material"].asString
+                    ).let { RushManager.rushMissions.add(it) } }
+                "GoThroughDoorRush" -> {
+                    GoThroughDoorRushContext(
                         mission["title"].coloredString(),
                         mission["duration"].asInt,
                         mission["material"].asString

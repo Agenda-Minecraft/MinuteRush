@@ -1,5 +1,7 @@
 package cat.kiwi.minecraft.minuteRush.rush
 
+import cat.kiwi.minecraft.metcd.MEtcd
+import cat.kiwi.minecraft.metcd.model.GameStatus
 import cat.kiwi.minecraft.minuteRush.Config
 import cat.kiwi.minecraft.minuteRush.Lang
 import cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
@@ -21,6 +23,7 @@ class RushManager {
         var currentTaskRegisteredListener: Listener? = null
 
         fun startRush() {
+            MEtcd.setGameStatus(GameStatus.RUNNING)
             // Synchronously
             WorldExpandTask.expand()
             // Asynchronously
@@ -48,6 +51,7 @@ class RushManager {
         }
 
         fun stopRush() {
+            MEtcd.setGameStatus(GameStatus.ENDING)
             SendTitle.sendAll(Lang.get("rush.end"))
             WorldExpandTask.stop()
             currentRush?.cancel()

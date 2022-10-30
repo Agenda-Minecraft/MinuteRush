@@ -5,6 +5,7 @@ import cat.kiwi.minecraft.minuteRush.rush.RushManager
 import cat.kiwi.minecraft.minuteRush.dispaly.RushScoreBoard
 import cat.kiwi.minecraft.minuteRush.dispaly.SendTitle
 import cat.kiwi.minecraft.minuteRush.rush.mission.GoThroughDoorRushContext
+import cat.kiwi.minecraft.minuteRush.utils.Logger
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerMoveEvent
@@ -18,6 +19,8 @@ class GoThroughDoorRushEvent : Listener {
             if (RushManager.currentRush is GoThroughDoorRushContext) {
                 val material = (RushManager.currentRush as GoThroughDoorRushContext).material
                 val playerLoc = e.player.location
+                Logger.debug("playerLoc: $playerLoc")
+                Logger.debug("playerLoc.block.type: ${playerLoc.block.type}")
                 if (playerLoc.block.type == material) {
                     RushManager.taskLock = true
                     if (RushManager.currentRush != null) {

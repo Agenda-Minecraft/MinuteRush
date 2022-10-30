@@ -1,6 +1,9 @@
 name: MinuteRush
-version: 0.0.1
+version: 0.0.2
 main: cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
+api-version: 1.19
+depend:
+  - MEtcd
 commands:
   minuterush:
     description: Minute Rush

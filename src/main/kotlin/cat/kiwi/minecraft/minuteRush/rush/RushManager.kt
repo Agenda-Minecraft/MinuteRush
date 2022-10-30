@@ -7,6 +7,7 @@ import cat.kiwi.minecraft.minuteRush.Lang
 import cat.kiwi.minecraft.minuteRush.MinuteRushPlugin
 import cat.kiwi.minecraft.minuteRush.border.WorldExpandTask
 import cat.kiwi.minecraft.minuteRush.dispaly.SendTitle
+import org.bukkit.Bukkit
 import org.bukkit.event.Listener
 import org.bukkit.scheduler.BukkitRunnable
 import org.bukkit.scheduler.BukkitTask
@@ -57,6 +58,13 @@ class RushManager {
             currentRush?.cancel()
             currentRush = null
             rushMissions.removeAll { true }
+            StopTask().runTaskLaterAsynchronously(MinuteRushPlugin.instance, Config.endingDelay)
+        }
+
+        class StopTask : BukkitRunnable() {
+            override fun run() {
+                Bukkit.getServer().shutdown()
+            }
         }
     }
 }

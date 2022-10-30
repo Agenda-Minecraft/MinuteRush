@@ -12,7 +12,9 @@ object Config {
     var delay_per_task = 2000L
     var game_start_delay = 2000L
     var startPlayer = 10
+    var endingDelay = 15000L
     var debug = true
+
     fun readConfig() = with(MinuteRushPlugin.instance.config) {
         options().copyDefaults(true)
         debug = getBoolean("debug")
@@ -27,5 +29,6 @@ object Config {
         delay_per_task = getLong("delay-per-task")
         game_start_delay = getLong("game-start-delay")
         startPlayer = getInt("start-player")
+        endingDelay = getLong("ending-delay")
     }
 }
